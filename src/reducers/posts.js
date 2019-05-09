@@ -1,4 +1,4 @@
-import { ACTION_CREATE_POST } from '../actions'
+import { ACTION_CREATE_POST, ACTION_DELETE_POST } from '../actions'
 import { generateId } from '../utils'
 // A reducer is a function that accepts the current state and an action. Then, calculates and returns the nest new version of state
 export default function posts(state={}, action={type: ''}) {
@@ -18,7 +18,13 @@ export default function posts(state={}, action={type: ''}) {
             // newState[id]
             return newState;
         break;
-        
+        case ACTION_DELETE_POST:
+            const deleteState = {
+                ...state
+            }
+            delete deleteState[action.payload.id];
+            return deleteState
+        break;
         default:
             return state
         break;
