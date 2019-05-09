@@ -26,12 +26,18 @@ export default function posts(state={}, action={type: ''}) {
             return deleteState
         break;
         case ACTION_UPDATE_POST:
-            return {
-                ...state,
-                [action.payload.id]: {
-                    title: action.payload.title || state[action.payload.id].title,
-                    content: action.payload.content || state[action.payload.id].content,
+            const postToUpdate = state[action.payload.id];
+            if(postToUpdate) {
+                return {
+                    ...state,
+                    [action.payload.id]: {
+                        title: action.payload.title || postToUpdate.title,
+                        content: action.payload.content || postToUpdate.content,
+                    }
                 }
+            } else {
+                // no post to update!
+                return state
             }
         break;
         default:
