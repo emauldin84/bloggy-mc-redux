@@ -4,7 +4,7 @@ import posts from './reducers/posts';
 
 // Pass an object to combinedReducers
 // This object should be shaped like your state
-const rootReducer = combinedReducers({
+const rootReducer = combineReducers({
     posts,
 })
 
