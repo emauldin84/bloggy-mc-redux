@@ -5,7 +5,7 @@ function BlogList({posts}) {
     // const listItems = Object.values(posts).map(post => <p>{post.title}</p>);
 
     // if we want the IDs as well as the blog posts,
-    // we should get an array of teh IDs (using Object.keys)
+    // we should get an array of the IDs (using Object.keys)
     // Then, we map over that array.
     // With each id, we can access the blog post in the posts object.
     const listItems = Object.keys(posts).map(id => {
