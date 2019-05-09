@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BlogList({posts}) {
+function BlogList({posts, handleClick}) {
     // helper function implicitly returns a <p>
     // const listItems = Object.values(posts).map(post => <p>{post.title}</p>);
 
@@ -10,7 +10,9 @@ function BlogList({posts}) {
     // With each id, we can access the blog post in the posts object.
     const listItems = Object.keys(posts).map(id => {
         const theBlogPost = posts[id];
-        return <p>{theBlogPost.title} - id:{id}</p>
+        return <p onClick={() => {
+            handleClick(id)
+        }}>{theBlogPost.title} - id: {id}</p>
     })
     return(
         <ul>
